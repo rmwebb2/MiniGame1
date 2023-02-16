@@ -4,20 +4,36 @@ import java.util.ArrayList;
 
 public class Player {
     private String name;
-    private int location;
+    int location;
 
-    public Player(){
-        name = "Jane";
-        location = 0;
+    public Player() {
     }
 
-    public void move(String direction, ArrayList<Rooms> rooms){
+    public Player(String name, int location) {
+        this.name = name;
+        this.location = location;
+
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLocation(int location) {
+        this.location = location;
+    }
+
+
+
+    public void move(String direction, ArrayList<Rooms> room) {  //method to set the direction to player location
+        ArrayList<Exit> exits = room.get(location).getExits();
         direction = direction.toLowerCase();
-        Rooms current = rooms.get(location);
-
-        //then you will need to work on exits and directions.  This is the
-        // part you will either use if-else if -else if -else or switch-case.
-
+        //Rooms current = room.get(location);
+        for (Exit ex : exits) {
+            if (ex.getDirection().equalsIgnoreCase(direction)) {  //setting location to destination
+                setLocation(ex.getDestination());
+            }
+        }
 
     }
 }

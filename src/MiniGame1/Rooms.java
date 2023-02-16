@@ -3,26 +3,30 @@ package MiniGame1;
 import java.util.ArrayList;
 
 public class Rooms {
-    private int roomNum;
+    private String roomNum;
     private String roomName;
-    private String[] roomDescription;
+    ArrayList<String> roomDescription;
     private boolean isVisited;
-    private ArrayList<Exit> exits;
+    ArrayList<Exit> exits;
 
-    public Rooms(int roomNum, String roomName, boolean isVisited) {
+    public Rooms() {
+
+    }
+
+
+    public Rooms(String roomNum, String roomName, ArrayList<String> roomDescription, ArrayList<Exit> exits) {
         this.roomNum = roomNum;
         this.roomName = roomName;
         this.roomDescription = roomDescription;
         this.isVisited = false;
-        this.exits = new ArrayList<Exit>();
-
+        this.exits = exits;
     }
 
-    public int getRoomNum() {
+    public String getRoomNum() {
         return roomNum;
     }
 
-    public void setRoomNum(int roomNum) {
+    public void setRoomNum(String roomNum) {
         this.roomNum = roomNum;
     }
 
@@ -34,12 +38,20 @@ public class Rooms {
         this.roomName = roomName;
     }
 
-    public String[] getRoomDescription() {
+    public ArrayList<String> getRoomDescription() {
         return roomDescription;
     }
 
-    public void setRoomDescription(String[] roomDescription) {
+    public void setRoomDescription(ArrayList<String> roomDescription) {
         this.roomDescription = roomDescription;
+    }
+
+    public ArrayList<Exit> getExits() {
+        return exits;
+    }
+
+    public void setExits(ArrayList<Exit> exits) {
+        this.exits = exits;
     }
 
     public boolean isVisited() {
@@ -49,4 +61,5 @@ public class Rooms {
     public void setVisited(boolean visited) {
         isVisited = visited;
     }
+
 }
